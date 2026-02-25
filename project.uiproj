@@ -1,0 +1,6 @@
+{
+  "Name": "GroceryStoreInventory",
+  "ProjectType": "Tests",
+  "Description": "End to end testing of Grocery Store Inventory application",
+  "MainFile": "Main.xaml"
+}
