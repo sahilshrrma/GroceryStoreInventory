@@ -1,0 +1,87 @@
+{
+  "exportedBy": null,
+  "bundleHash": null,
+  "version": "1.0.0.0",
+  "jitAssemblyCompilerCommands": [
+    {
+      "providerName": "TypedDataTable",
+      "typedDataTableDto": {
+        "id": 1,
+        "idRef": "NExtractDataGeneric`1_1",
+        "hash": "NExtractDataGeneric`1_1|DataTable|TXFcZL579gc1r9dbQnoCucH36Dfi95m1p84a3Q2w4",
+        "dataType": "System.Data.DataTable, System.Data.Common",
+        "columns": [
+          {
+            "columnName": "Name",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Barcode",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Qty",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Price",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Category",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Actions",
+            "dataType": "System.String, System.Private.CoreLib"
+          }
+        ]
+      },
+      "entityAssemblyKey": {
+        "name": "Studio.Generated.TypedDataTable1",
+        "hash": "NExtractDataGeneric`1_1|DataTable|fiompM6vYgCzkluJsg6jU4L5rmRCQLOpx28nnuOkvgo",
+        "assemblyName": "Studio.Generated.TypedDataTable1"
+      }
+    },
+    {
+      "providerName": "TypedDataTable",
+      "typedDataTableDto": {
+        "id": 2,
+        "idRef": "NExtractDataGeneric`1_1",
+        "hash": "NExtractDataGeneric`1_1|DataTable|TXFcZL579gc1r9dbQnoCucH36Dfi95m1p84a3Q2w4",
+        "dataType": "System.Data.DataTable, System.Data.Common",
+        "columns": [
+          {
+            "columnName": "Name",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Barcode",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Qty",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Price",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Category",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Actions",
+            "dataType": "System.String, System.Private.CoreLib"
+          }
+        ]
+      },
+      "entityAssemblyKey": {
+        "name": "Studio.Generated.TypedDataTable2",
+        "hash": "NExtractDataGeneric`1_1|DataTable|fiompM6vYgCzkluJsg6jU4L5rmRCQLOpx28nnuOkvgo",
+        "assemblyName": "Studio.Generated.TypedDataTable2"
+      }
+    }
+  ]
+}
