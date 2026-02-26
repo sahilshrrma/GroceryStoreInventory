@@ -1,4 +1,11 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Billing_Calculation" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Billing_Calculation" this:Billing_Calculation.reportIdLocal="0" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:ar="clr-namespace:atuipath_utilities.Report;assembly=atuipath_utilities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ra="clr-namespace:ReporterForUiPath.Activities;assembly=ReporterForUiPath.Activities" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:sd2="clr-namespace:System.Data;assembly=Studio.Generated.TypedDataTable2" xmlns:sd3="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="reportIdLocal" Type="InArgument(x:Int32)" />
+    <x:Property Name="testIdLocal" Type="OutArgument(x:String)" />
+    <x:Property Name="suiteIdLocal" Type="OutArgument(x:String)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -24,6 +31,30 @@
       <x:String>System.Windows.Markup</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>ReporterForUiPath.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>ReporterForUiPath.Enums</x:String>
+      <x:String>atuipath_utilities.Report</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -48,13 +79,964 @@
       <AssemblyReference>System.Xml.Linq</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>ReporterForUiPath.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Jira.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable1</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable2</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>ReporterForUiPath</AssemblyReference>
+      <AssemblyReference>atuipath_utilities</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Text.Json</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Billing_Calculation" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Billing_Calculation" sap:VirtualizedContainerService.HintSize="947,12296.999999999998" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="Tax">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">15</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="productName">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">keyboard</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="discount">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">10</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="customerName">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">Harsh</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="EmailAddress">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">demo@gmail.com</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="sd3:DataRow" Name="row" />
+      <Variable x:TypeArguments="x:String" Name="variable1" />
+      <Variable x:TypeArguments="x:String" Name="phoneNumber">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">123456789</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="sd2:DataTable2" Name="dt_Inventory" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="AddQuantity" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="productQuantity" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="currentStock" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="counter" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="632,12274" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="630,11777" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If sap:VirtualizedContainerService.HintSize="596,463" sap2010:WorkflowViewState.IdRef="If_1">
+            <If.Condition>
+              <InArgument x:TypeArguments="x:Boolean">
+                <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_43">reportIdLocal.Equals(0) == true</CSharpValue>
+              </InArgument>
+            </If.Condition>
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,226" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ra:CreateReport ContinueOnError="{x:Null}" DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="416,162" sap2010:WorkflowViewState.IdRef="CreateReport_1" ReportName="Add Product report">
+                  <ra:CreateReport.ReportLocation>
+                    <InArgument x:TypeArguments="x:String">
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads\\GroceryInventoryReports"</CSharpValue>
+                    </InArgument>
+                  </ra:CreateReport.ReportLocation>
+                  <ra:CreateReport.isCreated>
+                    <OutArgument x:TypeArguments="x:Int32">
+                      <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_18">reportIdLocal</CSharpReference>
+                    </OutArgument>
+                  </ra:CreateReport.isCreated>
+                </ra:CreateReport>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,94" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
+          <ra:StartSuite ContinueOnError="{x:Null}" DisplayName="Start Suite" sap:VirtualizedContainerService.HintSize="596,122" sap2010:WorkflowViewState.IdRef="StartSuite_1" SuiteName="Add to cart Suite">
+            <ra:StartSuite.ReportId>
+              <InArgument x:TypeArguments="x:Int32">
+                <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">reportIdLocal</CSharpValue>
+              </InArgument>
+            </ra:StartSuite.ReportId>
+            <ra:StartSuite.suiteId>
+              <OutArgument x:TypeArguments="x:String">
+                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">suiteIdLocal</CSharpReference>
+              </OutArgument>
+            </ra:StartSuite.suiteId>
+          </ra:StartSuite>
+          <ra:StartTest ContinueOnError="{x:Null}" TagName="{x:Null}" TestDescription="{x:Null}" DisplayName="Start Test" sap:VirtualizedContainerService.HintSize="596,122" sap2010:WorkflowViewState.IdRef="StartTest_1" Priority="Low" TestName="Add to Cart Test">
+            <ra:StartTest.ReportId>
+              <InArgument x:TypeArguments="x:Int32">
+                <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">reportIdLocal</CSharpValue>
+              </InArgument>
+            </ra:StartTest.ReportId>
+            <ra:StartTest.SuiteId>
+              <InArgument x:TypeArguments="x:String">
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">suiteIdLocal</CSharpValue>
+              </InArgument>
+            </ra:StartTest.SuiteId>
+            <ra:StartTest.testId>
+              <OutArgument x:TypeArguments="x:String">
+                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_17">testIdLocal</CSharpReference>
+              </OutArgument>
+            </ra:StartTest.testId>
+          </ra:StartTest>
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: GroceryStoreInventory" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="596,11006" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" IsDisplayNameAuto="True" ScopeGuid="e532bf44-e092-4fc6-89a6-355e0825b4c2" Version="V2" WindowResize="Maximize">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="594,10756" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="560,127" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1" DelayBefore="1" DisplayName="Click 'Products'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="560,198" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e532bf44-e092-4fc6-89a6-355e0825b4c2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable CVScreenId="e4d99378-d7d6-4a45-97f7-3edd1d1acb52" CvTextArea="175, 49, 56, 13" CvTextArgument="Products" CvType="Text" DesignTimeRectangle="175, 49, 56, 13" ElementType="Text" ElementVisibilityArgument="Interactive" Guid="483b137e-a561-4b90-996b-33695186bb9e" InformativeScreenshot="2144767ef3bbc52155f879999fba0053.jpg" ScopeSelectorArgument="&lt;wnd app='grocerystoreinventory.exe' appid='overheat.InventorySystem_xss8nnvbcysqr!App' title='GroceryStoreInventory' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="e4d99378-d7d6-4a45-97f7-3edd1d1acb52" CvElementArea="150, 44, 20, 22" CvType="Icon" DesignTimeRectangle="148, 42, 24, 26" ElementType="Icon" Guid="fb9d4c33-e7b9-4bd7-b9b9-a3f4712bf516" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABgAAAAaCAYAAACtv5zzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACgSURBVEhL7ZTBDcAgCEW7hxs4giM4gpu4gQs4mmu4As330BAi0oNNL77ECNLw6IWLPuaSD7s5AhNT0FqjlBI558bNY9QsTAEa1VpHjDuE8MSoWZgCTKvlsjbjP0GMcTR4c/CthipYTSdrMuccwTTnHME05/wn8N5T710+D2RDmXNUQSmFcs5TiVyAq6WnCgAk+BNMqB1rbS8FOzgCk88FN4m8BSC5nW4DAAAAAElFTkSuQmCC" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NExtractDataGeneric x:TypeArguments="sd2:DataTable2" ContinueOnError="True" DisplayName="Extract Table Data 'Table'" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='CV' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Name' ReferenceIdx='0' Name='Name'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Barcode' ReferenceIdx='1' Name='Barcode'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Qty' ReferenceIdx='2' Name='Qty'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Price' ReferenceIdx='3' Name='Price'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Category' ReferenceIdx='4' Name='Category'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Actions' ReferenceIdx='5' Name='Actions'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table table_source='CV' /&gt;" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="560,147" sap2010:WorkflowViewState.IdRef="NExtractDataGeneric`1_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="e532bf44-e092-4fc6-89a6-355e0825b4c2" Version="V5">
+                    <uix:NExtractDataGeneric.ExtractedData>
+                      <OutArgument x:TypeArguments="sd2:DataTable2">
+                        <CSharpReference x:TypeArguments="sd2:DataTable2" sap2010:WorkflowViewState.IdRef="CSharpReference`1_16">dt_Inventory</CSharpReference>
+                      </OutArgument>
+                    </uix:NExtractDataGeneric.ExtractedData>
+                    <uix:NExtractDataGeneric.Target>
+                      <uix:TargetAnchorable CvType="Table" DesignTimeRectangle="494, 222, 1086, 195" ElementVisibilityArgument="Interactive" Guid="485760a5-ddc7-4957-9b15-8c6fc49928f1" InformativeScreenshot="02e1437112280f33901f4df3f1c1f510.jpg" ScopeSelectorArgument="&lt;wnd app='grocerystoreinventory.exe' appid='overheat.InventorySystem_xss8nnvbcysqr!App' title='GroceryStoreInventory' /&gt;" SearchSteps="CV" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NExtractDataGeneric.Target>
+                  </uix:NExtractDataGeneric>
+                  <Assign sap:VirtualizedContainerService.HintSize="560,61" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="sd3:DataRow">
+                        <CSharpReference x:TypeArguments="sd3:DataRow" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">row</CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="sd3:DataRow">
+                        <CSharpValue x:TypeArguments="sd3:DataRow" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">dt_Inventory.DataTable.AsEnumerable().FirstOrDefault(r =&gt; r["Name"].ToString().Trim().ToLower() == productName.Trim().ToLower())</CSharpValue>
+                      </InArgument>
+                    </Assign.Value>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Assign>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Billing'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="560,61" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e532bf44-e092-4fc6-89a6-355e0825b4c2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable CVScreenId="9bf26530-2245-4391-bdab-66dc390b3dae" CvTextArea="286, 49, 39, 16" CvTextArgument="Billing" CvType="Text" DesignTimeRectangle="286, 49, 39, 16" ElementType="Text" ElementVisibilityArgument="Interactive" Guid="c0d7c631-04fd-472d-91d0-b267b37cd16f" InformativeScreenshot="996ad621543d81b20b55af28ec17d6ba.jpg" ScopeSelectorArgument="&lt;wnd app='grocerystoreinventory.exe' appid='overheat.InventorySystem_xss8nnvbcysqr!App' title='GroceryStoreInventory' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="9bf26530-2245-4391-bdab-66dc390b3dae" CvElementArea="261, 44, 19, 22" CvType="Icon" DesignTimeRectangle="259, 42, 23, 26" ElementType="Icon" Guid="9ca268c3-1f3c-4698-a136-120eb1768c77" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABcAAAAaCAYAAABctMd+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACPSURBVEhL7ZTBCcAgDEXdw40cwb0czTVcwfIFoaT56sFgDz4IlfT7DB501RAnGzu5chUqzznXGGP13g8LGWQ1qBybUkqy/QEZZDWoHFMBbJbT9uqH96xkKse3lCJ/t947o3FWbnotK7DsWXkIodVo/U/5Ciw7lbNpt0zOhFvkK7AslZs+XKZP7g6uXMVU/gDQgWptJPgKsAAAAABJRU5ErkJggg==" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NClick>
+                  <If sap:VirtualizedContainerService.HintSize="560,1154" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If.Condition>
+                      <InArgument x:TypeArguments="x:Boolean">
+                        <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">row== null</CSharpValue>
+                      </InArgument>
+                    </If.Condition>
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,569" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ar:failedStep sap:VirtualizedContainerService.HintSize="416,387" sap2010:WorkflowViewState.IdRef="failedStep_1" str_in_actualStep="Product not found" str_in_expectedStep="Product should exist in inventory" str_in_stepDescription="Checking if product exists in inventory table" str_in_stepName="Validate Product Exists">
+                          <ar:failedStep.str_in_reportId>
+                            <InArgument x:TypeArguments="x:Int32">
+                              <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">reportIdLocal</CSharpValue>
+                            </InArgument>
+                          </ar:failedStep.str_in_reportId>
+                          <ar:failedStep.str_in_testId>
+                            <InArgument x:TypeArguments="x:String">
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">testIdLocal</CSharpValue>
+                            </InArgument>
+                          </ar:failedStep.str_in_testId>
+                        </ar:failedStep>
+                        <Throw sap:VirtualizedContainerService.HintSize="416,118" sap2010:WorkflowViewState.IdRef="Throw_1">
+                          <InArgument x:TypeArguments="s:Exception">
+                            <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">new Exception("Product not Found in Inventory")</CSharpValue>
+                          </InArgument>
+                        </Throw>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,442" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ar:passedStep sap:VirtualizedContainerService.HintSize="416,378" sap2010:WorkflowViewState.IdRef="passedStep_2" str_in_actualStep="Product found" str_in_expectedStep="Product should exist" str_in_stepDescription="Checking if product exists in inventory table" str_in_stepName="Validate Product Exists">
+                          <ar:passedStep.str_in_reportId>
+                            <InArgument x:TypeArguments="x:Int32">
+                              <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">reportIdLocal</CSharpValue>
+                            </InArgument>
+                          </ar:passedStep.str_in_reportId>
+                          <ar:passedStep.str_in_testId>
+                            <InArgument x:TypeArguments="x:String">
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_36">testIdLocal</CSharpValue>
+                            </InArgument>
+                          </ar:passedStep.str_in_testId>
+                        </ar:passedStep>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <Assign sap:VirtualizedContainerService.HintSize="560,179" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">
+                        <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_45">currentStock</CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">
+                        <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">Convert.ToInt32(row["Qty"].ToString())</CSharpValue>
+                      </InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="560,179" sap2010:WorkflowViewState.IdRef="LogMessage_2">
+                    <ui:LogMessage.Message>
+                      <InArgument x:TypeArguments="x:Object">
+                        <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">"current stock is "+ currentStock</CSharpValue>
+                      </InArgument>
+                    </ui:LogMessage.Message>
+                  </ui:LogMessage>
+                  <If sap:VirtualizedContainerService.HintSize="560,8586" sap2010:WorkflowViewState.IdRef="If_3">
+                    <If.Condition>
+                      <InArgument x:TypeArguments="x:Boolean">
+                        <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">currentStock&lt;=0</CSharpValue>
+                      </InArgument>
+                    </If.Condition>
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="558,2348" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Product Search'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="524,250" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="SameAsCard" ScopeIdentifier="e532bf44-e092-4fc6-89a6-355e0825b4c2" Version="V5">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable CVScreenId="099832ce-d784-4e8c-9363-be9e032d03bf" CvElementArea="51, 272, 354, 37" CvType="InputBox" DesignTimeRectangle="51, 272, 354, 37" ElementType="InputBox" ElementVisibilityArgument="Interactive" Guid="0553ea43-0e13-4e49-8ccc-717193af06ed" InformativeScreenshot="2e0e875f0ab2f3415327c322ed1e9c57.jpg" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='grocerystoreinventory.exe' appid='overheat.InventorySystem_xss8nnvbcysqr!App' title='GroceryStoreInventory' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="099832ce-d784-4e8c-9363-be9e032d03bf" CvTextArea="82, 235, 138, 18" CvTextArgument="Product Search" CvType="Text" DesignTimeRectangle="82, 235, 138, 18" ElementType="Text" Guid="18de48ed-35cb-4ecf-b3e8-72c511206ce2" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                          <uix:NTypeInto.Text>
+                            <InArgument x:TypeArguments="x:String">
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">productName</CSharpValue>
+                            </InArgument>
+                          </uix:NTypeInto.Text>
+                        </uix:NTypeInto>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Button'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="524,198" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e532bf44-e092-4fc6-89a6-355e0825b4c2" Version="V5">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable CVScreenId="49bc9f64-80d0-4e37-974f-5a3470c5019b" CvElementArea="413, 271, 132, 38" CvType="Button" DesignTimeRectangle="413, 271, 132, 38" ElementType="Button" ElementVisibilityArgument="Interactive" Guid="4ec47ea9-1270-4f2f-a7f4-417dc4b9b64c" InformativeScreenshot="51d696981225b0ba9735fbbad4eb5071.jpg" ScopeSelectorArgument="&lt;wnd app='grocerystoreinventory.exe' appid='overheat.InventorySystem_xss8nnvbcysqr!App' title='GroceryStoreInventory' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="49bc9f64-80d0-4e37-974f-5a3470c5019b" CvElementArea="51, 272, 354, 37" CvType="InputBox" DesignTimeRectangle="51, 272, 354, 37" ElementType="InputBox" Guid="d04dd41b-cbc7-4fbf-bdbc-1770c062de47" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                        <uix:NCheckState DisplayName="Check App State 'Info'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="524,1836" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="e532bf44-e092-4fc6-89a6-355e0825b4c2" Version="V5">
+                          <uix:NCheckState.IfExists>
+                            <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,748" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,179" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info">
+                                <ui:LogMessage.Message>
+                                  <InArgument x:TypeArguments="x:Object">
+                                    <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">"Out of stock Popup appears"</CSharpValue>
+                                  </InArgument>
+                                </ui:LogMessage.Message>
+                              </ui:LogMessage>
+                              <ar:passedStep sap:VirtualizedContainerService.HintSize="416,387" sap2010:WorkflowViewState.IdRef="passedStep_3" str_in_actualStep="Out of stock popup appeared successfully" str_in_expectedStep="Out of stock popup should appear" str_in_stepDescription="Verify that out of stock popup appears when quantity exceeds stock" str_in_stepName="Validate Out of Stock Popup">
+                                <ar:passedStep.str_in_reportId>
+                                  <InArgument x:TypeArguments="x:Int32">
+                                    <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_37">reportIdLocal</CSharpValue>
+                                  </InArgument>
+                                </ar:passedStep.str_in_reportId>
+                                <ar:passedStep.str_in_testId>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_38">testIdLocal</CSharpValue>
+                                  </InArgument>
+                                </ar:passedStep.str_in_testId>
+                              </ar:passedStep>
+                              <Throw sap:VirtualizedContainerService.HintSize="416,118" sap2010:WorkflowViewState.IdRef="Throw_2">
+                                <InArgument x:TypeArguments="s:Exception">
+                                  <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">new Exception("Out of stock popup appear")</CSharpValue>
+                                </InArgument>
+                              </Throw>
+                            </Sequence>
+                          </uix:NCheckState.IfExists>
+                          <uix:NCheckState.IfNotExists>
+                            <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,748" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,179" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Error">
+                                <ui:LogMessage.Message>
+                                  <InArgument x:TypeArguments="x:Object">
+                                    <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">"Out of stock popup did not appear"</CSharpValue>
+                                  </InArgument>
+                                </ui:LogMessage.Message>
+                              </ui:LogMessage>
+                              <ar:failedStep sap:VirtualizedContainerService.HintSize="416,387" sap2010:WorkflowViewState.IdRef="failedStep_2" str_in_actualStep="Out of stock popup did not appear" str_in_expectedStep="Out of stock popup should appear" str_in_stepDescription="Verify that out of stock popup appears when quantity exceeds stock" str_in_stepName="Validate Out of Stock Popup">
+                                <ar:failedStep.str_in_reportId>
+                                  <InArgument x:TypeArguments="x:Int32">
+                                    <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_39">reportIdLocal</CSharpValue>
+                                  </InArgument>
+                                </ar:failedStep.str_in_reportId>
+                                <ar:failedStep.str_in_testId>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_40">testIdLocal</CSharpValue>
+                                  </InArgument>
+                                </ar:failedStep.str_in_testId>
+                              </ar:failedStep>
+                              <Throw sap:VirtualizedContainerService.HintSize="416,118" sap2010:WorkflowViewState.IdRef="Throw_3">
+                                <InArgument x:TypeArguments="s:Exception">
+                                  <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">new Exception("Out of stock popup did not appear")</CSharpValue>
+                                </InArgument>
+                              </Throw>
+                            </Sequence>
+                          </uix:NCheckState.IfNotExists>
+                          <uix:NCheckState.Target>
+                            <uix:TargetAnchorable CVScreenId="adb37ba2-25e7-42c3-bde3-605bfd08259a" CvElementArea="672, 414, 22, 22" CvType="Icon" DesignTimeRectangle="670, 412, 26, 26" ElementType="Icon" ElementVisibilityArgument="Interactive" Guid="c673e759-374a-4a45-946f-9c0b59ed28a8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJCSURBVEhL7dRLTxNRGIBh/por7QV7LyqRRtwZgyJCWwotpYU0IhEDEhYaL/EWItGwMdGF7vgJxoXAQmoiCNR2bue0fc2UBOmhA4Z4SQzPcs535p05mUwbf0mbeuFPOQ4d2b8PfXOPsnlqhFLPXXWpiVz+wlbsJmb3JGJxSV3e1TIklj6yfiLFtieLHi5QujSnjjTYkXV/FiOaR8Ym0HOP1ZFdLUO14ialk6NogXGMaAE9NM73vntNM3Zk0z+CERlFnC9Q9qQw5t83zezVMmTTbi1S9uTQg2PokTG0QI5K+lFjrWpHfOmfEVcSbeaVeosmjiGbOfeasjeLFsiih3Jo/gza8H22/UOYkSyiq0DFnUCbealu3efAkE1/+JayewjdfoNgBiM8gnU2j+wqoHniaNML6paWDg3ZjPl3VNxxzHAaGStQ7Z7ADAyhT79QRx39Uqi2UkQPp5CdeardNxCdeczAINbUc3XU0aGh+soaejCBiGSoxgqISBrLn8AKDmL64lhTz9QtLR0Yqi+vYYTiyGiaatc4lrcPmZnD6khine5HBJNYvgHE1FN16z6OITtihfuR0eFGRHivIWd3jqq+WkR0JBC+64hQEuEfQN5+ot6iiWPICPYgI6lGRLb3Up1Vjmi1iOyII319iGAco/0KcuFN88weLUPVD5/YcMWoRAeotV+ldsfhaVfXqJ3px/BeZst1AS01qU7sahmyfQ1cpOSKUZ/Z+Rs4qa98xjzXy4arE/OB8+fuGPrdjkNH9v+FfgDjsfwXsKJZSQAAAABJRU5ErkJggg==" InformativeScreenshot="c8807af0b37f5b36d65b6ac2528380a6.jpg" ScopeSelectorArgument="&lt;wnd app='grocerystoreinventory.exe' appid='overheat.InventorySystem_xss8nnvbcysqr!App' title='GroceryStoreInventory' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="adb37ba2-25e7-42c3-bde3-605bfd08259a" CvTextArea="673, 381, 36, 18" CvTextArgument="Info" CvType="Text" DesignTimeRectangle="673, 381, 36, 18" ElementType="Text" Guid="351b6b91-9bbb-4915-97ce-01bc73be88e6" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NCheckState.Target>
+                        </uix:NCheckState>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="558,6104" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="524,215" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                          <ui:MultipleAssign.AssignOperations>
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:Int32">
+                                    <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_47">counter</CSharpReference>
+                                  </OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:Int32">
+                                    <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_43">AddQuantity</CSharpReference>
+                                  </OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:Int32">5</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:Int32">
+                                    <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_44">productQuantity</CSharpReference>
+                                  </OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:Int32">3</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                            </scg:List>
+                          </ui:MultipleAssign.AssignOperations>
+                        </ui:MultipleAssign>
+                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While" sap:VirtualizedContainerService.HintSize="524,2912" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+                          <ui:InterruptibleWhile.Body>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="522,2777" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Product Search'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="488,250" sap2010:WorkflowViewState.IdRef="NTypeInto_7" InteractionMode="SameAsCard" ScopeIdentifier="e532bf44-e092-4fc6-89a6-355e0825b4c2" Version="V5">
+                                <uix:NTypeInto.Target>
+                                  <uix:TargetAnchorable CVScreenId="099832ce-d784-4e8c-9363-be9e032d03bf" CvElementArea="51, 272, 354, 37" CvType="InputBox" DesignTimeRectangle="51, 272, 354, 37" ElementType="InputBox" ElementVisibilityArgument="Interactive" Guid="0553ea43-0e13-4e49-8ccc-717193af06ed" InformativeScreenshot="2e0e875f0ab2f3415327c322ed1e9c57.jpg" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='grocerystoreinventory.exe' appid='overheat.InventorySystem_xss8nnvbcysqr!App' title='GroceryStoreInventory' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                        <uix:Target CVScreenId="099832ce-d784-4e8c-9363-be9e032d03bf" CvTextArea="82, 235, 138, 18" CvTextArgument="Product Search" CvType="Text" DesignTimeRectangle="82, 235, 138, 18" ElementType="Text" Guid="18de48ed-35cb-4ecf-b3e8-72c511206ce2" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NTypeInto.Target>
+                                <uix:NTypeInto.Text>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">productName</CSharpValue>
+                                  </InArgument>
+                                </uix:NTypeInto.Text>
+                              </uix:NTypeInto>
+                              <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="2" DelayBefore="2" DisplayName="Click 'Button'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="488,198" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e532bf44-e092-4fc6-89a6-355e0825b4c2" Version="V5">
+                                <uix:NClick.Target>
+                                  <uix:TargetAnchorable CVScreenId="49bc9f64-80d0-4e37-974f-5a3470c5019b" CvElementArea="413, 271, 132, 38" CvType="Button" DesignTimeRectangle="413, 271, 132, 38" ElementType="Button" ElementVisibilityArgument="Interactive" Guid="4ec47ea9-1270-4f2f-a7f4-417dc4b9b64c" InformativeScreenshot="51d696981225b0ba9735fbbad4eb5071.jpg" ScopeSelectorArgument="&lt;wnd app='grocerystoreinventory.exe' appid='overheat.InventorySystem_xss8nnvbcysqr!App' title='GroceryStoreInventory' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                        <uix:Target CVScreenId="49bc9f64-80d0-4e37-974f-5a3470c5019b" CvElementArea="51, 272, 354, 37" CvType="InputBox" DesignTimeRectangle="51, 272, 354, 37" ElementType="InputBox" Guid="d04dd41b-cbc7-4fbf-bdbc-1770c062de47" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NClick.Target>
+                              </uix:NClick>
+                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="488,184" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                                <ui:MultipleAssign.AssignOperations>
+                                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:Int32">
+                                          <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_48">counter</CSharpReference>
+                                        </OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:Int32">
+                                          <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">counter+1</CSharpValue>
+                                        </InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:Int32">
+                                          <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_46">currentStock</CSharpReference>
+                                        </OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:Int32">
+                                          <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">currentStock-1</CSharpValue>
+                                        </InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                  </scg:List>
+                                </ui:MultipleAssign.AssignOperations>
+                              </ui:MultipleAssign>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="488,179" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info">
+                                <ui:LogMessage.Message>
+                                  <InArgument x:TypeArguments="x:Object">
+                                    <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_45" xml:space="preserve">"counter is "+ counter +  " currentStock is" + currentStock</CSharpValue>
+                                  </InArgument>
+                                </ui:LogMessage.Message>
+                              </ui:LogMessage>
+                              <If sap:VirtualizedContainerService.HintSize="488,1784" sap2010:WorkflowViewState.IdRef="If_4">
+                                <If.Condition>
+                                  <InArgument x:TypeArguments="x:Boolean">
+                                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_46">currentStock &lt; 0</CSharpValue>
+                                  </InArgument>
+                                </If.Condition>
+                                <If.Then>
+                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="486,1547" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NCheckState DisplayName="Check App State 'Info'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="452,1431" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="e532bf44-e092-4fc6-89a6-355e0825b4c2" Version="V5">
+                                      <uix:NCheckState.IfExists>
+                                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,640" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ar:passedStep sap:VirtualizedContainerService.HintSize="416,387" sap2010:WorkflowViewState.IdRef="passedStep_6" str_in_actualStep="Out of stock popup appeared successfully" str_in_expectedStep="Out of stock popup should appear" str_in_stepDescription="Verify that out of stock popup appears when quantity exceeds stock" str_in_stepName="Validate Out of Stock Popup">
+                                            <ar:passedStep.str_in_reportId>
+                                              <InArgument x:TypeArguments="x:Int32">
+                                                <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_47">reportIdLocal</CSharpValue>
+                                              </InArgument>
+                                            </ar:passedStep.str_in_reportId>
+                                            <ar:passedStep.str_in_testId>
+                                              <InArgument x:TypeArguments="x:String">
+                                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_48">testIdLocal</CSharpValue>
+                                              </InArgument>
+                                            </ar:passedStep.str_in_testId>
+                                          </ar:passedStep>
+                                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Button'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,189" sap2010:WorkflowViewState.IdRef="NClick_7" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e532bf44-e092-4fc6-89a6-355e0825b4c2" Version="V5">
+                                            <uix:NClick.Target>
+                                              <uix:TargetAnchorable CVScreenId="353cf840-e47e-4e83-bf84-9a27dd9c80d8" CvElementArea="811, 482, 133, 34" CvTextArea="867, 492, 20, 13" CvTextArgument="OK" CvType="Button" DesignTimeRectangle="811, 482, 133, 34" ElementType="Button" ElementVisibilityArgument="Interactive" Guid="8ebc5a4e-ae9f-4b4d-b8ae-fc3c4e0866ee" InformativeScreenshot="4dfc3d22ef587ae4fe087ea7bdf5668f.jpg" ScopeSelectorArgument="&lt;wnd app='grocerystoreinventory.exe' appid='overheat.InventorySystem_xss8nnvbcysqr!App' title='GroceryStoreInventory' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+                                                <uix:TargetAnchorable.Anchors>
+                                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                    <uix:Target CVScreenId="353cf840-e47e-4e83-bf84-9a27dd9c80d8" CvTextArea="673, 381, 36, 18" CvTextArgument="Info" CvType="Text" DesignTimeRectangle="673, 381, 36, 18" ElementType="Text" Guid="60236fcf-8283-4970-8c25-a34f41d5e489" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                                  </scg:List>
+                                                </uix:TargetAnchorable.Anchors>
+                                              </uix:TargetAnchorable>
+                                            </uix:NClick.Target>
+                                          </uix:NClick>
+                                        </Sequence>
+                                      </uix:NCheckState.IfExists>
+                                      <uix:NCheckState.IfNotExists>
+                                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,442" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ar:failedStep sap:VirtualizedContainerService.HintSize="416,378" sap2010:WorkflowViewState.IdRef="failedStep_5" str_in_actualStep="Out of stock popup did not appear" str_in_expectedStep="Out of stock popup should appear" str_in_stepDescription="Verify that out of stock popup appears when quantity exceeds stock" str_in_stepName="Validate Out of Stock Popup">
+                                            <ar:failedStep.str_in_reportId>
+                                              <InArgument x:TypeArguments="x:Int32">
+                                                <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_49">reportIdLocal</CSharpValue>
+                                              </InArgument>
+                                            </ar:failedStep.str_in_reportId>
+                                            <ar:failedStep.str_in_testId>
+                                              <InArgument x:TypeArguments="x:String">
+                                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_50">testIdLocal</CSharpValue>
+                                              </InArgument>
+                                            </ar:failedStep.str_in_testId>
+                                          </ar:failedStep>
+                                        </Sequence>
+                                      </uix:NCheckState.IfNotExists>
+                                      <uix:NCheckState.Target>
+                                        <uix:TargetAnchorable CVScreenId="353cf840-e47e-4e83-bf84-9a27dd9c80d8" CvElementArea="672, 414, 21, 21" CvType="Icon" DesignTimeRectangle="670, 412, 25, 25" ElementType="Icon" ElementVisibilityArgument="Interactive" Guid="74960020-77a5-42bd-a41b-567f0f1bc10c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI/SURBVEhL7dPLTxNBHMBx/jVP2gf2XVQijXgzBkWEthRaSgtpRCIGJBw0PuIrRKLhYqIHvfEnGA8CB6mJIFDbfc20/ZotiumwBUkUL3yOO7/Z72Sy28YRaFMf/AvHkUP5v5Fv7lE2T41Q6rmrLjWRy1/Yit3E7J5ELC6pyw2OEbH0kfUTKbY9WfRwgdKlOXWkwQ6s+7MY0TwyNoGee6yONDhGasVNSidH0QLjGNECemic7333mmbswKZ/BCMyijhfoOxJYcy/b5r5xTFi024tUvbk0INj6JExtECOSvpRY61qB3zp3wFXEm3mlfqKXS0jNnPuNWVvFi2QRQ/l0PwZtOH7bPuHMCNZRFeBijuBNvNS3dpk34hNf/iWsnsI3T55MIMRHsE6m0d2FdA8cbTpBXXLHgdGbMb8OyruOGY4jYwVqHZPYAaG0KdfqKOO/ihSWymih1PIzjzV7huIzjxmYBBr6rk66ujASH1lDT2YQEQyVGMFRCSN5U9gBQcxfXGsqWfqlj32jdSX1zBCcWQ0TbVrHMvbh8zMYXUksU73I4JJLN8AYuqpurVJy4gdsML9yOhwIyC815CzO9dTXy0iOhII33VEKInwDyBvP1FfsatlxAj2ICOpRkC291KdVa5ltYjsiCN9fYhgHKP9CnLhTfPMT46R6odPbLhiVKID1NqvUrvT4pSra9TO9GN4L7PluoCWmlQnGhwjtq+Bi5RcMeozO395K/WVz5jnetlwdWI+cP6kW0b+puPIoRxJ5AdZiDDj11EcxAAAAABJRU5ErkJggg==" InformativeScreenshot="b1b2d58a56475d7982b4f39a918ed8b7.jpg" ScopeSelectorArgument="&lt;wnd app='grocerystoreinventory.exe' appid='overheat.InventorySystem_xss8nnvbcysqr!App' title='GroceryStoreInventory' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                              <uix:Target CVScreenId="353cf840-e47e-4e83-bf84-9a27dd9c80d8" CvTextArea="673, 381, 36, 18" CvTextArgument="Info" CvType="Text" DesignTimeRectangle="673, 381, 36, 18" ElementType="Text" Guid="b67dc2a2-03c8-4783-8069-ba46381d3371" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NCheckState.Target>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </uix:NCheckState>
+                                    <ui:Break sap:VirtualizedContainerService.HintSize="452,52" sap2010:WorkflowViewState.IdRef="Break_2" />
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="486,94" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                              <Delay Duration="00:00:04" sap:VirtualizedContainerService.HintSize="488,118" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                            </Sequence>
+                          </ui:InterruptibleWhile.Body>
+                          <ui:InterruptibleWhile.Condition>
+                            <CSharpValue x:TypeArguments="x:Boolean" DisplayName="C sharp value" sap2010:WorkflowViewState.IdRef="CSharpValue`1_44">counter &lt;= AddQuantity</CSharpValue>
+                          </ui:InterruptibleWhile.Condition>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InterruptibleWhile>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Tax'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="524,61" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="SameAsCard" ScopeIdentifier="e532bf44-e092-4fc6-89a6-355e0825b4c2" Version="V5">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable CVScreenId="68ddd3ed-3b5b-49d3-881c-59c828600247" CvElementArea="1061, 221, 66, 34" CvType="InputBox" DesignTimeRectangle="1061, 221, 66, 34" ElementType="InputBox" ElementVisibilityArgument="Interactive" Guid="ffe150cd-2c6f-4f15-b31b-80afe395e0c3" InformativeScreenshot="d1c51115654dc6c219dd4b4e9f282a78.jpg" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='grocerystoreinventory.exe' appid='overheat.InventorySystem_xss8nnvbcysqr!App' title='GroceryStoreInventory' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="68ddd3ed-3b5b-49d3-881c-59c828600247" CvTextArea="992, 225, 26, 13" CvTextArgument="Tax:" CvType="Text" DesignTimeRectangle="992, 225, 26, 13" ElementType="Text" Guid="5ed98a47-68d7-4894-8d56-d70a89a216c8" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                          <uix:NTypeInto.Text>
+                            <InArgument x:TypeArguments="x:String">
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">Tax</CSharpValue>
+                            </InArgument>
+                          </uix:NTypeInto.Text>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NTypeInto>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Discount'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="524,61" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="SameAsCard" ScopeIdentifier="e532bf44-e092-4fc6-89a6-355e0825b4c2" Version="V5">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable CVScreenId="68ddd3ed-3b5b-49d3-881c-59c828600247" CvElementArea="1060, 297, 67, 33" CvType="InputBox" DesignTimeRectangle="1060, 297, 67, 33" ElementType="InputBox" ElementVisibilityArgument="Interactive" Guid="aa4418d0-1b69-447d-9439-dcf1d51cdb7b" InformativeScreenshot="f1daee196ae683d35523f04d78e75339.jpg" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='grocerystoreinventory.exe' appid='overheat.InventorySystem_xss8nnvbcysqr!App' title='GroceryStoreInventory' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="68ddd3ed-3b5b-49d3-881c-59c828600247" CvTextArea="993, 301, 61, 13" CvTextArgument="Discount:" CvType="Text" DesignTimeRectangle="993, 301, 61, 13" ElementType="Text" Guid="b01721e5-4abb-4df6-a4d6-39a9ff2e57c5" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                          <uix:NTypeInto.Text>
+                            <InArgument x:TypeArguments="x:String">
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">discount</CSharpValue>
+                            </InArgument>
+                          </uix:NTypeInto.Text>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NTypeInto>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Customer Name'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="524,61" sap2010:WorkflowViewState.IdRef="NTypeInto_4" InteractionMode="SameAsCard" ScopeIdentifier="e532bf44-e092-4fc6-89a6-355e0825b4c2" Version="V5">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable CVScreenId="68ddd3ed-3b5b-49d3-881c-59c828600247" CvTextArea="1027, 685, 102, 13" CvTextArgument="Customer Name" CvType="Text" DesignTimeRectangle="1027, 685, 102, 13" ElementType="Text" ElementVisibilityArgument="Interactive" Guid="0b47c3ae-a41e-49cf-8d29-2dc71b1b42b8" InformativeScreenshot="47090aa946b50fe12e5c9487f08e3769.jpg" ScopeSelectorArgument="&lt;wnd app='grocerystoreinventory.exe' appid='overheat.InventorySystem_xss8nnvbcysqr!App' title='GroceryStoreInventory' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="68ddd3ed-3b5b-49d3-881c-59c828600247" CvElementArea="1004, 681, 20, 22" CvType="Icon" DesignTimeRectangle="1002, 679, 24, 26" ElementType="Icon" Guid="3036f5ef-92d2-46ac-bb0c-a69e1fec9048" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABgAAAAaCAYAAACtv5zzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHkSURBVEhL7ZNLLwNRGIb9GRZaWlRVERbuFJWW6gwSgkRUVauoWwXV1hipKBISxC1x21mQ2Nn6CZaaVOLyC/rKHJfEOcl0JCQkFk8mmbzfec73fTkpiUQCP0kK/eO7+Rck5fcI1kNncPERuFuj8LavIzh0iHjsicnRKBLsrJyjTNWP6kwPLLkz4AuX0FYUwWTXPpOlUSRwciLKVU7UaIbRqJuGPV9Aa2EEnHGRydIoEvRaw0RQqxmBOccPmyEIzigS6CxNUsHJ7iVK0no+OngX8AUibIYwpvo2mZovCi5QnNr9toMhNGRPwKqfI2Oy5M5izrXD1HxJILEWOkNpugOVGYMwaX1o1PnRpA9grEP+cAlFguPtK5Sm95ExSV3UZY3BnDOFsPeIydIoEkiIkwdvkgEi8bStIR57ZHI0igRSB131ATKiGo0XdVofOqsWsL96xWRpZAXx2ANGu1dRrnaiKsMDk3YE9dnj5C1Ii7YZQvC0bOHm+papVSSQHliZyoFKtev15lk+MnuLfhbNhiDsRgF8wRIcDRu4v3tm6mUF74uVBBXq17mbtKOkA7POTyTWvACa8uYJwvApc4asQBjfg6NF+MBpF+HiIhjgljHIrcDNR+Hmop++9Bmygu/iX5CUvy94Aft33oTaVn0pAAAAAElFTkSuQmCC" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                          <uix:NTypeInto.Text>
+                            <InArgument x:TypeArguments="x:String">
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">customerName</CSharpValue>
+                            </InArgument>
+                          </uix:NTypeInto.Text>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NTypeInto>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Phone Number'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="524,250" sap2010:WorkflowViewState.IdRef="NTypeInto_5" InteractionMode="SameAsCard" ScopeIdentifier="e532bf44-e092-4fc6-89a6-355e0825b4c2" Version="V5">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable CVScreenId="68ddd3ed-3b5b-49d3-881c-59c828600247" CvTextArea="1027, 729, 96, 13" CvTextArgument="Phone Number" CvType="Text" DesignTimeRectangle="1027, 729, 96, 13" ElementType="Text" ElementVisibilityArgument="Interactive" Guid="d6f0be82-9a67-4743-93f8-90ac2cf850c8" InformativeScreenshot="017559f5b3abe5085d293da3f237ee67.jpg" ScopeSelectorArgument="&lt;wnd app='grocerystoreinventory.exe' appid='overheat.InventorySystem_xss8nnvbcysqr!App' title='GroceryStoreInventory' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="68ddd3ed-3b5b-49d3-881c-59c828600247" CvElementArea="1004, 725, 22, 22" CvType="Icon" DesignTimeRectangle="1002, 723, 26, 26" ElementType="Icon" Guid="3b68df79-a8ff-463a-ae1a-ce46309c7ed7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHXSURBVEhL7c7dS1NxGMBx/5iCRIq09Lg5xPJERrMpBFFgDqFsBaXRyzZRb0ZD88ZWwyEFliIWUUS1G422DFGM8E7S47bjXG3zpRfoct84F1b465jnhAXhxefm9zwP319eLpfjb8hb+7BZtkKm/fvQaL2foUof46cfCDMzdEMz1mrCtitE5dtMN4eFuVG6IaXITqzgMJFSDxO1/X8c0w3NFTmI77Cj5tcQKfYyVn2XSc9TYW+jdEPxg07mC4+hbreT3OZgZM9VXrc8FPY2Sjc0f/IiKVsD2X3n+VDSyJfAY2HHCN1Q+tpNElIdi4cus3TUJ8yN0g1pFNnJ+/JzLMluPnY9EeZGrBtK+3qIldaTkS+RKXOz0vns+2zM1ctglZ/RC4+Eu19ZN6RRnS3ES06xeMBD2uYh6wrxdWKWhNxGuOI6L6r6mGr68QE9vw1pEsfdxKQzZPd7yVS2k7R0kNob4tPOPqJSkMkT93nb9Fy4MxzSqA1+FKuLBYuXVHknSSnI8q4QKwU9RCxBXjkGeNPxUrgzHNIs34syV9PGTFkritRFvPgGC4UB0rsDDFu7GT47INysMhRa9XlkGrXxDrO1t1CO9PJODqDW9Qt7PzMVMmMrZNr/F/oGBE0Kx97PJOEAAAAASUVORK5CYII=" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                          <uix:NTypeInto.Text>
+                            <InArgument x:TypeArguments="x:String">
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">phoneNumber</CSharpValue>
+                            </InArgument>
+                          </uix:NTypeInto.Text>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NTypeInto>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Email Address'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="524,250" sap2010:WorkflowViewState.IdRef="NTypeInto_6" InteractionMode="SameAsCard" ScopeIdentifier="e532bf44-e092-4fc6-89a6-355e0825b4c2" Version="V5">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable CVScreenId="68ddd3ed-3b5b-49d3-881c-59c828600247" CvElementArea="994, 763, 570, 33" CvType="InputBox" DesignTimeRectangle="994, 763, 570, 33" ElementType="InputBox" ElementVisibilityArgument="Interactive" Guid="d53c2b45-04e2-4c7d-9e62-2feb662d798f" InformativeScreenshot="da6b3531a3f559943447ef94fe59fb6e.jpg" ScopeSelectorArgument="&lt;wnd app='grocerystoreinventory.exe' appid='overheat.InventorySystem_xss8nnvbcysqr!App' title='GroceryStoreInventory' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="68ddd3ed-3b5b-49d3-881c-59c828600247" CvTextArea="1027, 773, 88, 13" CvTextArgument="Email Address" CvType="Text" DesignTimeRectangle="1027, 773, 88, 13" ElementType="Text" Guid="6cb59e09-5a2c-4326-a953-b0447ce168b2" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                          <uix:NTypeInto.Text>
+                            <InArgument x:TypeArguments="x:String">
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">EmailAddress</CSharpValue>
+                            </InArgument>
+                          </uix:NTypeInto.Text>
+                        </uix:NTypeInto>
+                        <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Mouse Scroll" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="524,319" sap2010:WorkflowViewState.IdRef="NMouseScroll_1" InteractionMode="HardwareEvents" MovementUnits="5" ScopeIdentifier="e532bf44-e092-4fc6-89a6-355e0825b4c2" Version="V5">
+                          <uix:NMouseScroll.SearchedElement>
+                            <uix:SearchedElement>
+                              <uix:SearchedElement.InUiElement>
+                                <InArgument x:TypeArguments="ui:UiElement" />
+                              </uix:SearchedElement.InUiElement>
+                              <uix:SearchedElement.OutUiElement>
+                                <OutArgument x:TypeArguments="ui:UiElement" />
+                              </uix:SearchedElement.OutUiElement>
+                              <uix:SearchedElement.Target>
+                                <uix:TargetAnchorable CVScreenId="b2fe1468-abfd-46fc-a264-3dc3a19d550e" CvElementArea="994, 719, 571, 47" CvType="Button" DesignTimeRectangle="994, 719, 571, 47" ElementType="Button" ElementVisibilityArgument="Interactive" Guid="218c168f-fb68-49fe-9351-4a94cf4f55b9" InformativeScreenshot="894fb91200ef072ba6b4280f77c99482.jpg" ScopeSelectorArgument="&lt;wnd app='grocerystoreinventory.exe' appid='overheat.InventorySystem_xss8nnvbcysqr!App' title='GroceryStoreInventory' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target CVScreenId="b2fe1468-abfd-46fc-a264-3dc3a19d550e" CvElementArea="993, 777, 115, 40" CvTextArea="1029, 790, 65, 16" CvTextArgument="Save Only" CvType="Button" DesignTimeRectangle="993, 777, 115, 40" ElementType="Button" Guid="5dac2b8c-29bf-4553-aab1-d5b2a22cff9f" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:SearchedElement.Target>
+                              <uix:SearchedElement.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:SearchedElement.Timeout>
+                            </uix:SearchedElement>
+                          </uix:NMouseScroll.SearchedElement>
+                        </uix:NMouseScroll>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Button'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="524,198" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e532bf44-e092-4fc6-89a6-355e0825b4c2" Version="V5">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable CVScreenId="2c466414-7b94-4bd1-a71d-c7dc8b46f742" CvElementArea="994, 719, 571, 47" CvType="Button" DesignTimeRectangle="994, 719, 571, 47" ElementType="Button" ElementVisibilityArgument="Interactive" Guid="c5a33ed9-8c79-4001-a600-b0d9a02a0a59" InformativeScreenshot="833ec1bbade985b327294bdb21efab1a.jpg" ScopeSelectorArgument="&lt;wnd app='grocerystoreinventory.exe' appid='overheat.InventorySystem_xss8nnvbcysqr!App' title='GroceryStoreInventory' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V6" WaitForReadyArgument="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="2c466414-7b94-4bd1-a71d-c7dc8b46f742" CvElementArea="993, 777, 115, 40" CvTextArea="1029, 790, 65, 16" CvTextArgument="Save Only" CvType="Button" DesignTimeRectangle="993, 777, 115, 40" ElementType="Button" Guid="bec14986-ce68-4c5a-96da-ada864ee9e2b" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Print PDF - Print" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="524,1713" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" IsDisplayNameAuto="True" ScopeGuid="5ae120b1-56d7-495d-8440-c2f00cff8bc0" Version="V2">
+                          <uix:NApplicationCard.Body>
+                            <ActivityAction x:TypeArguments="x:Object">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="486,1467" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NCheckState DisplayName="Check App State 'Print preview'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="452,1403" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="5ae120b1-56d7-495d-8440-c2f00cff8bc0" Version="V5">
+                                  <uix:NCheckState.IfExists>
+                                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,621" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,179" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info">
+                                        <ui:LogMessage.Message>
+                                          <InArgument x:TypeArguments="x:Object">
+                                            <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_53">"order placed successfully"</CSharpValue>
+                                          </InArgument>
+                                        </ui:LogMessage.Message>
+                                      </ui:LogMessage>
+                                      <ar:passedStep sap:VirtualizedContainerService.HintSize="416,378" sap2010:WorkflowViewState.IdRef="passedStep_7" str_in_actualStep="print Inovice appeared" str_in_expectedStep="print Inovice should appear" str_in_stepDescription="Verify that order placed success message appears after checkout" str_in_stepName="Validate Order Placement">
+                                        <ar:passedStep.str_in_reportId>
+                                          <InArgument x:TypeArguments="x:Int32">
+                                            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_54">reportIdLocal</CSharpValue>
+                                          </InArgument>
+                                        </ar:passedStep.str_in_reportId>
+                                        <ar:passedStep.str_in_testId>
+                                          <InArgument x:TypeArguments="x:String">
+                                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_55">testIdLocal</CSharpValue>
+                                          </InArgument>
+                                        </ar:passedStep.str_in_testId>
+                                      </ar:passedStep>
+                                    </Sequence>
+                                  </uix:NCheckState.IfExists>
+                                  <uix:NCheckState.IfNotExists>
+                                    <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,442" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ar:failedStep sap:VirtualizedContainerService.HintSize="416,378" sap2010:WorkflowViewState.IdRef="failedStep_6" str_in_actualStep="print Inovice did not appear" str_in_expectedStep="print Inovice should appear" str_in_stepDescription="Verify that order placed success message appears after checkout" str_in_stepName="Validate Order Placement">
+                                        <ar:failedStep.str_in_reportId>
+                                          <InArgument x:TypeArguments="x:Int32">
+                                            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_56">reportIdLocal</CSharpValue>
+                                          </InArgument>
+                                        </ar:failedStep.str_in_reportId>
+                                        <ar:failedStep.str_in_testId>
+                                          <InArgument x:TypeArguments="x:String">
+                                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_57">testIdLocal</CSharpValue>
+                                          </InArgument>
+                                        </ar:failedStep.str_in_testId>
+                                      </ar:failedStep>
+                                    </Sequence>
+                                  </uix:NCheckState.IfNotExists>
+                                  <uix:NCheckState.Target>
+                                    <uix:TargetAnchorable DesignTimeRectangle="371, 87, 414, 534" ElementType="Icon" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;uia automationid='PreviewImage' cls='Image' name='Print preview' enabled='true' role='image' /&gt;" Guid="c3cfa015-576e-421d-bd37-d454ceb10385" InformativeScreenshot="bf2dedc3d33e2fd3a827173534bdd1b2.jpg" ScopeSelectorArgument="&lt;wnd app='explorer.exe' appid='Windows.PrintDialog_cw5n1h2txyewy!Microsoft.Windows.PrintDialog' title='Print PDF - Print' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="None" />
+                                  </uix:NCheckState.Target>
+                                </uix:NCheckState>
+                              </Sequence>
+                            </ActivityAction>
+                          </uix:NApplicationCard.Body>
+                          <uix:NApplicationCard.CloseMode>
+                            <InArgument x:TypeArguments="uix:NAppCloseMode">
+                              <CSharpValue x:TypeArguments="uix:NAppCloseMode" sap2010:WorkflowViewState.IdRef="CSharpValue`1_52">UiPath.UIAutomationNext.Enums.NAppCloseMode.Always</CSharpValue>
+                            </InArgument>
+                          </uix:NApplicationCard.CloseMode>
+                          <uix:NApplicationCard.OCREngine>
+                            <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                              <ActivityFunc.Argument>
+                                <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                              </ActivityFunc.Argument>
+                            </ActivityFunc>
+                          </uix:NApplicationCard.OCREngine>
+                          <uix:NApplicationCard.OpenMode>
+                            <InArgument x:TypeArguments="uix:NAppOpenMode">
+                              <CSharpValue x:TypeArguments="uix:NAppOpenMode" sap2010:WorkflowViewState.IdRef="CSharpValue`1_51">UiPath.UIAutomationNext.Enums.NAppOpenMode.Never</CSharpValue>
+                            </InArgument>
+                          </uix:NApplicationCard.OpenMode>
+                          <uix:NApplicationCard.TargetApp>
+                            <uix:TargetApp Area="367, 43, 866, 741" FilePath="Windows.PrintDialog_cw5n1h2txyewy!Microsoft.Windows.PrintDialog" IconBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAEiUlEQVRo3u1ZTYgcRRh9X3fhbgiyIEREFL3oRQ85eRCEEDHoXtwoBlSWkICuQfGgCBLBmQ3EmJM/oB7cFQ/mYCDqZVc0rI4xunozCIKIENTN7iGI2WWdCWTqeeifqe7+qqd7ZFYi0zBD/fXUe9979XVVjyGJq/kyuMqvEYERgRGBmtfeVTQBNPLtZ0+dV8cfm75TbX/i1e+15lkeu6M5bAUaQwxoA0BzZKERgRGBAQhMH5y5NV5AUwAmACCzTyJBABefeV39oYsrm2r7r7+L2n7NpTW1/ZFHjxMAopmZFBDNjksgPgHQPPXhB+dTAtMHZ3YCaKnAlfowryLwTH2C4H4AUw/te3zXRydP/GDiyLcATJQDJ7aEB4kSBVwirb37HttpYttkwPuI2LFtW6dABr9KZAJA05CcyvtcrzMi4pWBtZr9HXrUcwok9SlDUlmwViUinU1c+90C1u+6vzivtSocT7PacVvnHGipg6UTSMdKxna7uSjD4/voR7YvL2L78mJaT7ofztR7Hb+88mBubPQ9yfdVe3Qd4LcfXkiR/Hz0AQeXpERM11qQBGkd1gqRnMR63Zs93AAq9tCtc6XTm+VKtwtJsIlARCAQmM2NdSQk1ExD/5rIdhejXKgrxLK3Z9n++Vtv0ObGRmRjiRQQAUQE5tkXXipkHm9Gcgn4yooi2bIeed+YtPZ83v+xhSoBzK0FX7kcVJndKpZdpZjbSvSIbDFYBZQ/ffZRYHDrDA6qDlitbOp4+98q4FfDB9A/Jtl1mP/MOlUsVU2B6mCXTn+K5a9b6HTaut0cS/XiwmKG0bIOgbHxcdx9zy7s3jPZF7ijQDXrvPXacaytrmQAq+oVSDiAPWQSeJ12G0ufL+KnH8/h6edeLAWelE0Vn39xehFrqytKpMui74+0ToIpyQsX/sDSZwu4d89kBizz220ShhWs8+2ZVgr00MyTOPTUDBhPHm1Dkk9EyCpt+Y9V2t+bn8f8/BwA4pszX2L3fZN1FNAXYqf9d8bzEXg6QDWAyJHIjrNkTD577/4DBzA3/y7AaN6MmjngSbmSAu4+yVrbFyBJWPijX6ZUGtC43WedpNxXgbFt4xmfWxtPCF+kq1mpTL3ENi5Y34PWsEIOd6W0BRDlkS4QBNJDi3o/nFMf/dZJSBgyv/0tPlgiB0U1m54fPFEGcwBrkHPmAdk3AwGAmXvnzegwY1kEDYC0uOnmW9DtdnG5044m7Quwql2K2WjHjhswNj6GMDSYe/uNdN+f2iZ5zSQBBIAJAwEZggEA2GL0bQCR6LQWBGG6iKv6WbVQiQ2DMEQYGgRhgEACSCAgoyOkpIfJmIcIjAThEdC+LADAEIzObfHxDbCBhUAQ2AAi0lvEXhv5QFYjKAJIIDH4aM5EhWThSvxN8oj5+OSJRp13/n+tbzL/ALM1fe4dB2L57Fcy1Je7lra2z12AyfopPNg42Ju/+gRsSc5PAdYj55LYAgK2ALDy9sFDxDopePgEBgCYEkT/dLsVFpol2VCtgMG3D/F9s0MncOP11zXr/pM4+ovp/0zgH6t8uw5Wml/qAAAAAElFTkSuQmCC" InformativeScreenshot="54d4155d85b3a652eb2c31fc4c838123.jpg" Selector="&lt;wnd app='explorer.exe' appid='Windows.PrintDialog_cw5n1h2txyewy!Microsoft.Windows.PrintDialog' title='Print PDF - Print' /&gt;" Version="V2">
+                              <uix:TargetApp.Arguments>
+                                <InArgument x:TypeArguments="x:String" />
+                              </uix:TargetApp.Arguments>
+                              <uix:TargetApp.WorkingDirectory>
+                                <InArgument x:TypeArguments="x:String" />
+                              </uix:TargetApp.WorkingDirectory>
+                            </uix:TargetApp>
+                          </uix:NApplicationCard.TargetApp>
+                        </uix:NApplicationCard>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.CloseMode>
+              <InArgument x:TypeArguments="uix:NAppCloseMode">
+                <CSharpValue x:TypeArguments="uix:NAppCloseMode" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">UiPath.UIAutomationNext.Enums.NAppCloseMode.Never</CSharpValue>
+              </InArgument>
+            </uix:NApplicationCard.CloseMode>
+            <uix:NApplicationCard.OCREngine>
+              <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                <ActivityFunc.Argument>
+                  <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                </ActivityFunc.Argument>
+              </ActivityFunc>
+            </uix:NApplicationCard.OCREngine>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-8, -8, 1616, 868" FilePath="overheat.InventorySystem_xss8nnvbcysqr!App" InformativeScreenshot="d3b4f6b3f18c723939cbb1a978452221.jpg" Selector="&lt;wnd app='grocerystoreinventory.exe' appid='overheat.InventorySystem_xss8nnvbcysqr!App' title='GroceryStoreInventory' /&gt;" Version="V2">
+                <uix:TargetApp.Arguments>
+                  <InArgument x:TypeArguments="x:String" />
+                </uix:TargetApp.Arguments>
+                <uix:TargetApp.WorkingDirectory>
+                  <InArgument x:TypeArguments="x:String" />
+                </uix:TargetApp.WorkingDirectory>
+              </uix:TargetApp>
+            </uix:NApplicationCard.TargetApp>
+          </uix:NApplicationCard>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="630,234" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="596,170" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+                <ui:LogMessage.Message>
+                  <InArgument x:TypeArguments="x:Object">
+                    <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">"Exception is "+ exception.Message</CSharpValue>
+                  </InArgument>
+                </ui:LogMessage.Message>
+              </ui:LogMessage>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="630,94" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </TryCatch.Finally>
+    </TryCatch>
   </Sequence>
 </Activity>
