@@ -12951,7 +12951,7 @@
       ]
     },
     "atuipath_utilities/1.0.6": {
-      "sha512": "o0YpIs/ZF34JcH6fQXMpAy2tdw3XB6x4cPk9bxKMrEDXIEM35HnyPhKqFf12oOn/cw2Lag1LB0Vzlxi5WG8fiQ==",
+      "sha512": "6ExqAm+AK5iBBRcahltrq/ZVMkSa3ervnLs6ywCgjUjqko8B8fyTpPJdZjDHY85zVgMK6dIiprLB78sb3YbL0w==",
       "type": "package",
       "path": "atuipath_utilities/1.0.6",
       "files": [
@@ -24825,9 +24825,9 @@
     "restore": {
       "projectUniqueName": "GroceryStoreInventory",
       "projectName": "GroceryStoreInventory",
-      "projectPath": "C:\\UIPath projects\\GroceryStore\\GroceryStoreInventory\\.local",
+      "projectPath": "C:\\Development\\UiPath\\GroceryStoreInventory\\.local",
       "packagesPath": "C:\\Users\\Testing\\.nuget\\packages\\",
-      "outputPath": "C:\\UIPath projects\\GroceryStore\\GroceryStoreInventory\\.local",
+      "outputPath": "C:\\Development\\UiPath\\GroceryStoreInventory\\.local",
       "UsingMicrosoftNETSdk": false,
       "restoreAuditProperties": {
         "enableAudit": "False"
@@ -24857,7 +24857,7 @@
             "version": "[1.0.6, 1.0.6]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\Testing\\AppData\\Local\\Programs\\UiPathPlatform\\Studio\\26.0.187-cloud.22164\\PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\Testing\\AppData\\Local\\Programs\\UiPath\\Studio\\PortableRuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
@@ -24867,230 +24867,6 @@
     }
   },
   "logs": [
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\Users\\Testing\\Documents\\UseofLibraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\UIPath projects\\Libraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\UIPath projects\\Libraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\Users\\Testing\\Documents\\UseofLibraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\UIPath projects\\Libraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities.Runtime"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\Users\\Testing\\Documents\\UseofLibraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities.Runtime"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\UIPath projects\\Libraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Design.RecoveryPanel"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\Users\\Testing\\Documents\\UseofLibraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Design.RecoveryPanel"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\UIPath projects\\Libraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities.Runtime"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\Users\\Testing\\Documents\\UseofLibraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities.Runtime"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\UIPath projects\\Libraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Design.RecoveryPanel"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\Users\\Testing\\Documents\\UseofLibraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Design.RecoveryPanel"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\UIPath projects\\Libraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities.Runtime.Design"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\Users\\Testing\\Documents\\UseofLibraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities.Runtime.Design"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\UIPath projects\\Libraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities.Runtime.Design"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\Users\\Testing\\Documents\\UseofLibraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities.Runtime.Design"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\UIPath projects\\Libraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\Users\\Testing\\Documents\\UseofLibraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\UIPath projects\\Libraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\Users\\Testing\\Documents\\UseofLibraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\UIPath projects\\Libraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities.Runtime"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\Users\\Testing\\Documents\\UseofLibraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities.Runtime"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\UIPath projects\\Libraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities.Runtime"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\Users\\Testing\\Documents\\UseofLibraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities.Runtime"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\UIPath projects\\Libraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Design.RecoveryPanel"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\Users\\Testing\\Documents\\UseofLibraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Design.RecoveryPanel"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\UIPath projects\\Libraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Design.RecoveryPanel"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\Users\\Testing\\Documents\\UseofLibraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Design.RecoveryPanel"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\UIPath projects\\Libraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities.Runtime.Design"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\Users\\Testing\\Documents\\UseofLibraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities.Runtime.Design"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\UIPath projects\\Libraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities.Runtime.Design"
-    },
-    {
-      "code": "NU1801",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The local source 'C:\\Users\\Testing\\Documents\\UseofLibraries' doesn't exist.",
-      "libraryId": "UiPath.UIAutomation.Activities.Runtime.Design"
-    },
     {
       "code": "NU1608",
       "level": "Warning",
